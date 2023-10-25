@@ -85,5 +85,26 @@ public class AuthenticationService {
         });
         tokenRepository.saveAll(validUserTokens);
     }
+    public AuthenticationResponse authenticateViaGoogle(String googleEmail) throws  Exception {
+        try {
+            // Check if the email exists in the database
+            var user = repository.findByEmail(googleEmail).orElse(null);
+            if (user != null) {
+                // If the user with the Google email exists, generate a JWT token for them
+                var jwtToken = JwtService.generateToken(user);
+
+                saveUserToken(user, jwtToken);
+                return AuthenticationResponse.builder().token(jwtToken).build();
+            } else {
+                // Handle the case when the email does not exist in the database
+                // You can return an error response or perform other actions as needed
+                // For example, you can throw an exception, log the event, or return a specific error response.
+                throw new Exception("Email not found in the database");
+            }
+        } catch (Exception e) {
+            System.out.print(e);
+            throw  e;
+        }
+    }
 
 }

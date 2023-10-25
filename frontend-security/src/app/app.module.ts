@@ -9,7 +9,27 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {
+  GoogleLoginProvider,
+  SocialAuthServiceConfig,
+  SocialLoginModule,
+  GoogleSigninButtonModule,
+} from '@abacritt/angularx-social-login';
 
+
+
+const config: SocialAuthServiceConfig = {
+  providers: [
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+
+      provider: new GoogleLoginProvider(
+        '360599613542-j8il63optd440q20iknopkmttkev7lj2.apps.googleusercontent.com'
+      ),
+    },
+    // Add other providers as needed
+  ],
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,11 +42,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
-    
-  
+    BrowserAnimationsModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule,
   ],
-  providers: [],
+
+  
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: config,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
