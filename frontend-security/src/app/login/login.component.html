@@ -1,0 +1,21 @@
+<div class="login">
+    <h2>Login</h2><br>
+    <div class="container">
+    <form id="" method="" action="">
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="text" name="" id="email" placeholder="Enter Your Name" [(ngModel)]="loginData.email"  [ngModelOptions]="{standalone: true}">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="password" id="" placeholder="Enter Password" [(ngModel)]="loginData.password"  [ngModelOptions]="{standalone: true}">
+        <br><br>
+        <button (click)="login()">Login</button> 
+        <button routerLink="/signup">SignUp</button>
+        
+        <br><br>
+    </form>
+</div>
+</div>

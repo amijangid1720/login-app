@@ -1,0 +1,31 @@
+<div class="login">
+    <h2>SignUp</h2><br>
+    <div class="container">
+    <form id="" method="" action="">
+        <label><b>First Name
+        </b>
+        </label>
+        <input type="text" name="" id="" placeholder="Enter Your First Name" [(ngModel)]="firstName"  [ngModelOptions]="{standalone: true}">
+        <br><br>
+        <label><b>Last Name
+        </b>
+        </label>
+        <input type="text" name="" id="" placeholder="Enter Your Last Name" [(ngModel)]="lastName"  [ngModelOptions]="{standalone: true}">
+        <br><br>
+        <label><b>Email <br>
+        </b>
+        </label>
+        <input type="email" name="" id="" placeholder="Enter Your Email" [(ngModel)]="email"  [ngModelOptions]="{standalone: true}">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="" id="" placeholder="Enter Password"[(ngModel)]="password"  [ngModelOptions]="{standalone: true}">
+        <br><br>
+        <button (click)="register()">SignUp</button>
+        <button routerLink="">Login</button>
+      
+        <br><br>
+    </form>
+</div>
+</div>

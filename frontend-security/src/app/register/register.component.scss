@@ -1,0 +1,45 @@
+$color_1: #277582;
+$color_2: #021814;
+$color_3: white;
+$font-family_1: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+$background-color_1: #021814;
+
+.container {
+	width: 382px;
+	padding: 80px;
+	background: #285a509e;
+	border-radius: 15px;
+	margin: auto;
+	font-family: $font-family_1;
+}
+h2 {
+	text-align: center;
+	color: $color_1;
+	padding: 20px;
+	font-family: $font-family_1;
+}
+input {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+label {
+	color: $color_2;
+	font-size: 17px;
+}
+button {
+	width: 100px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	background-color: $background-color_1;
+	margin-right: 25px;
+	color: $color_3;
+}
+a {
+	color: $color_3;
+	font-family: $font-family_1;
+	text-decoration: none;
+}
