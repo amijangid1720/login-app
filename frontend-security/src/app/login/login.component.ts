@@ -38,21 +38,25 @@ export class LoginComponent implements OnInit {
       console.log('token: ' + user.idToken);
       const googleIdToken = user.idToken;
 
-      /// send id token to the backend
+    //   /// send id token to the backend
       this.authBackendService.sendTokenToBackend(googleIdToken).subscribe({
         next: (res) => {
           console.log(res);
-
+          if(this.loggedIn){
+            this.signOut();
+          }
           localStorage.setItem('token', res.token);
           this.router.navigateByUrl('api/v1/dashboard');
+
         },
         error: (err) => {
           console.log(err);
         },
       });
-    });
+     });
   }
 
+  //for logi usinfg username-password
   login() {
     // request to generate token
     this.tokenService
@@ -77,10 +81,10 @@ export class LoginComponent implements OnInit {
 
   ///for google auth
 
-  // signInWithGoogle(): void {
-  //   console.log("jdskfjkfd");
-
-  //   this.authService
+   signInWithGoogle(): void { 
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+  // //   this.authService
   //     .signIn(GoogleLoginProvider.PROVIDER_ID)
   //     .then((user) => {
   //       this.user = user;
